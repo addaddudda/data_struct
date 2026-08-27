@@ -33,7 +33,6 @@ void insert(int data){
     node -> next = tail;
     tail -> prev = node;
 }
-
 void delete(int order){
     Node* node = head -> next;
     for(int i = 0; i < order - 1; i++){
