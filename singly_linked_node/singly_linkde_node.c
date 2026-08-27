@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include "singly_linked_node.h"
+
 
 typedef struct Node
 {
@@ -9,40 +11,6 @@ typedef struct Node
 
 Node* head, *tail;
 
-void insert(int data){
-    Node* node = (Node*)malloc(sizeof(Node));
-    node -> data = data;
-    Node* cur = head -> next;
-    if(head -> next == tail){
-        head -> next = node;
-        node -> next = tail;
-        return;
-    }
-    
-    while(cur -> next != tail){
-        cur = cur -> next;
-    }
-    
-
-    node -> next = tail;
-    cur -> next = node;
-}
-
-
-
-void delete(int order){
-    
-}
-
-
-
-void show(void){
-    Node* cur = head -> next;
-    while(cur -> next != NULL){
-        printf("%d ", cur -> data);
-        cur = cur -> next;
-    }
-}
 
 
 
@@ -58,7 +26,9 @@ int main(void){
     insert(1);
     insert(3);
     insert(100);
-    
+
+    delete(2);
+
 
     show();
 
