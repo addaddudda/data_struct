@@ -4,7 +4,7 @@
 Node node[5];
 
 Node head, tail;
-int index_max = 0;
+int last_index = 0;
 
 
 void show(void){
@@ -23,11 +23,15 @@ void insert(){
     
     if(head.next == -1 && tail.prev== -1){
         head.next = order;
-        index_max = order;
-    }else if(order > index_max){
-        node[index_max].next = order;
-        node[order].prev = index_max;
-        index_max = order;
+        last_index = order;
+    }else if(order > last_index){
+        node[last_index].next = order;
+        node[order].prev = last_index;
+        last_index = order;
+    }else if(order < last_index){
+        node[last_index].prev = order;
+        node[order].next = last_index;
+        last_index = order;
     }
     show();
 }
